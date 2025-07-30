@@ -66,9 +66,7 @@ Routing > RIP > Networks: 192.168.1.0/24
 
 🔁 Router 2 - Middle Router
 Terminal (SSH)
-bash
-Copy
-Edit
+
 ip address add address=192.168.1.2/24 interface=ether1
 ip address add address=192.168.2.1/24 interface=ether2
 routing rip interface add interface=ether1 receive=v2 send=v2
@@ -88,9 +86,7 @@ Routing > RIP > Networks: 192.168.1.0/24, 192.168.2.0/24
 
 🧑‍💻 Router 3 - Client Router
 Terminal (SSH)
-bash
-Copy
-Edit
+
 ip address add address=192.168.2.2/24 interface=ether1
 ip dns set servers=8.8.8.8 allow-remote-requests=yes
 routing rip interface add interface=ether1 receive=v2 send=v2
@@ -105,8 +101,6 @@ Routing > RIP > Interface: ether1
 Routing > RIP > Networks: 192.168.2.0/24
 
 🧪 Connectivity Test (from Router 3)
-bash
-Copy
-Edit
+
 ping 8.8.8.8
 ping google.com
