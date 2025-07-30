@@ -9,30 +9,25 @@ This guide covers the configuration of three MikroTik routers using both **SSH (
 
 ## 🖧 Network Topology
 
-nginx
-Copy
-Edit
+
        INTERNET
            │
     [ether1: DHCP]
      Router 1 (R1)
      192.168.88.1/24
      192.168.1.1/24
-           │
- ┌─────────┘
- ▼
-Router 2 (R2)
-192.168.1.2/24
-192.168.2.1/24
-│
-▼
-Router 3 (R3)
-192.168.2.2/24
-DNS: 8.8.8.8
+                  │
+        ┌─────────┘
+        ▼
+       Router 2 (R2)
+       192.168.1.2/24
+       192.168.2.1/24
+       │
+       ▼
+       Router 3 (R3)
+       192.168.2.2/24
+       DNS: 8.8.8.8
 
-csharp
-Copy
-Edit
 
 ---
 
