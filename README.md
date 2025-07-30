@@ -1,4 +1,4 @@
-# task-3-micrtotic-Routers-RIP
+# task-3-Microtic-Routers-RIP
 
 
 # MikroTik RIP Routing Configuration Guide
