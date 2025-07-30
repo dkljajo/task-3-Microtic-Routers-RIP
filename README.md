@@ -28,10 +28,6 @@ Router 3 (R3)
 192.168.2.2/24
 DNS: 8.8.8.8
 
-csharp
-Copy
-Edit
-
 ---
 
 ## ⚙️ Router 1 - Gateway Router
