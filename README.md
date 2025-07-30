@@ -8,6 +8,9 @@ This guide covers the configuration of three MikroTik routers using both **SSH (
 
 ![1](./router_architecture.png)
 
+![2](./zadatak_mikrotik.png)
+
+
 
 ---
 
