@@ -104,3 +104,65 @@ Routing > RIP > Networks: 192.168.2.0/24
 
 ping 8.8.8.8
 ping google.com
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+MikroTik 3-Router Lab in GNS3 with CHR, RoMON, Static & RIP
+
+1. Overview
+
+This guide explains how to create a MikroTik 3-router lab using GNS3 with CHR images. You will
+configure static routing, RIP protocol, NAT, and RoMON for Winbox management.
+
+2. Network Diagram
+
+3. Lab Setup Steps
+
+1. Install GNS3, VirtualBox or QEMU, and Winbox.
+2. Download MikroTik CHR image (.img) from https://mikrotik.com/download.
+3. Add CHR to GNS3 as QEMU VM with 256MB RAM and 3 interfaces.
+4. Create 3 routers: CHR-A, CHR-B, CHR-C and connect them in series.
+5. Add a cloud node connected to CHR-A for Winbox access from your PC.
+
+
+4. Enabling RoMON
+/tool romon set enabled=yes
+/tool romon set id=routerA (optional)Then use Winbox > Tools > RoMON to connect to other routers via CHR-A.
+
+
+5. IP Configuration
+Router A:
+/ip address add address=192.168.1.1/24 interface=ether2
+/ip firewall nat add chain=srcnat out-interface=ether1 action=masquerade
+Router B:
+/ip address add address=192.168.1.2/24 interface=ether1
+/ip address add address=192.168.2.1/24 interface=ether2
+Router C:
+/ip address add address=192.168.2.2/24 interface=ether1
+
+
+6. Static Routing
+Router B:
+/ip route add dst-address=0.0.0.0/0 gateway=192.168.1.1
+Router C:
+/ip route add dst-address=0.0.0.0/0 gateway=192.168.2.1
+
+
+7. RIP Protocol Setup
+Router A:
+/routing rip interface add interface=ether2
+/routing rip network add network=192.168.1.0/24
+Router B:
+/routing rip interface add interface=ether1
+/routing rip interface add interface=ether2
+/routing rip network add network=192.168.1.0/24/routing rip network add network=192.168.2.0/24
+Router C:
+/routing rip interface add interface=ether1
+/routing rip network add network=192.168.2.0/24
+
+
+8. Connectivity Testing
+From Router C:
+/tool ping 192.168.2.1
+/tool ping 192.168.1.1
+/tool ping 8.8.8.8
