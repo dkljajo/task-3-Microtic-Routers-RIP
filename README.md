@@ -5,7 +5,9 @@
 
 This guide covers the configuration of three MikroTik routers using both **SSH (Terminal)** and **Winbox GUI**, with **RIP v2 routing protocol** for dynamic routing between routers.
 
-[!img][./router_architecture.png]
+
+![1](./router_architecture.png)
+
 
 ---
 
